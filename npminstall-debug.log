@@ -1,11 +1,11 @@
 {
-  root: 'E:\\desktop\\服务器',
+  root: 'E:\\desktop\\服务器\\Node-server',
   registry: 'https://registry.npmmirror.com',
   pkgs: [
     {
       name: 'sqlite3',
-      version: 'latest',
-      type: 'tag',
+      version: '4.1.1',
+      type: 'version',
       alias: undefined,
       arg: [Result]
     }
@@ -15,7 +15,7 @@
   cacheDir: 'C:\\Users\\gpp2022\\.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\gpp2022\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","sqlite3"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\gpp2022\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","sqlite3"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\gpp2022\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","sqlite3@4.1.1"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\gpp2022\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","sqlite3@4.1.1"]}',
     npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v20.1.0 win32 x64',
     npm_config_cache: 'C:\\Users\\gpp2022\\.npminstall_tarball',
     NODE: 'C:\\Program Files\\nodejs\\node.exe',
@@ -50,8 +50,8 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-    npm_rootpath: 'E:\\desktop\\服务器',
-    INIT_CWD: 'E:\\desktop\\服务器'
+    npm_rootpath: 'E:\\desktop\\服务器\\Node-server',
+    INIT_CWD: 'E:\\desktop\\服务器\\Node-server'
   },
   binaryMirrors: {
     ENVS: {
@@ -187,7 +187,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: 'E:\\desktop\\服务器',
+  workspaceRoot: 'E:\\desktop\\服务器\\Node-server',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,

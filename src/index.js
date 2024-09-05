@@ -1,6 +1,7 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+// const sqlite3 = require('sqlite3').verbose();
 const register = require('./Middleware/register'); // 引入注册模块
+const login = require('./Middleware/login'); // 引入注册模块
 
 const app = express();
 // 用于解析 JSON 格式的请求体
@@ -36,8 +37,8 @@ app.post('*', (req, res, next) => {
     case '/register':
       register.registerUser(req, res);
       break;
-    case '/routeB':
-      handleRouteB(req, res);
+    case '/login':
+      register.loginUser(req, res);
       break;
     case '/routeC':
       handleRouteC(req, res);
