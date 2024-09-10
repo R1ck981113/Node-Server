@@ -4,11 +4,14 @@ const bcrypt = require('bcryptjs');
 module.exports.registerUser = (req, res) => {
   console.log('registerUser');
   const db = new sqlite3.Database('./src/database.sqlite', (err) => {
-    if (err) {
+    if (err) 
+    {
       console.error(err.message);
       res.status(500).send('Database connection failed');
       return;
-    } else {
+    } 
+    else 
+    {
       console.log('Connected to the SQLite database.');
     }
   });
@@ -20,25 +23,29 @@ module.exports.registerUser = (req, res) => {
 
   const { username, password } = req.body;
   // 输入验证
-  if (!username || !password) {
+  if (!username || !password) 
+  {
     return res.status(400).send('Username and password are required');
   }
 
   // 检查用户名是否已存在
   db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
-    if (err) {
+    if (err)
+     {
       console.error(err.message);
       res.status(500).send('Error checking username');
       return;
     }
-    if (row) {
+    if (row) 
+    {
       res.status(400).send('Username already exists');
       return;
     }
 
     // 密码哈希
     bcrypt.hash(password, 10, (err, hash) => { //其中数字10是盐的圆数
-      if (err) {
+      if (err) 
+      {
         console.error(err.message);
         res.status(500).send('Error hashing password');
         return;
@@ -49,10 +56,13 @@ module.exports.registerUser = (req, res) => {
       stmt.run(username, hash, function (err) {
         stmt.finalize();
 
-        if (err) {
+        if (err) 
+        {
           console.error(err.message);
           res.status(500).send('Error registering user');
-        } else {
+        } 
+        else 
+        {
           res.status(201).send({ username: username, message: 'User registered successfully' });
         }
       });
@@ -64,11 +74,14 @@ module.exports.registerUser = (req, res) => {
 
 module.exports.loginUser = (req, res) => {
   const db = new sqlite3.Database('./src/database.sqlite', (err) => {
-    if (err) {
+    if (err)
+     {
       console.error(err.message);
       res.status(500).send('Database connection failed');
       return;
-    } else {
+    } 
+    else 
+    {
       console.log('Connected to the SQLite database.');
     }
   });
@@ -85,18 +98,23 @@ module.exports.loginUser = (req, res) => {
   stmt.get(username, (err, row) => {
     stmt.finalize();
 
-    if (err) {
+    if (err)
+     {
       console.error(err.message);
       return res.status(500).send('Error fetching user');
     }
 
-    if (row) {
+    if (row) 
+    {
       // 用户存在，比较密码
       bcrypt.compare(password, row.password, (err, result) => {
-        if (result) {
+        if (result) 
+        {
           // 密码匹配，登录成功
           res.status(200).send('Login successful');
-        } else {
+        } 
+        else 
+        {
           // 密码不匹配，登录失败
           res.status(401).send('Invalid username or password');
         }
